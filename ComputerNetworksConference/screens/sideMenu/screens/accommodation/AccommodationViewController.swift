@@ -28,7 +28,11 @@ class AccommodationViewController: UIViewController, UITableViewDelegate, UITabl
             accommodationCell.setCell(withEntity: accomodationEntites[indexPath.row])
           }
           return cell
-               
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "MapSegue", sender: nil)
     }
     
     override func viewDidLoad() {
@@ -38,3 +42,4 @@ class AccommodationViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
 }
+
