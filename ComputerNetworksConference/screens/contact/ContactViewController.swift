@@ -15,10 +15,10 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var contactTableView: UITableView!
     
     //TODO
-    private var organizersEntities: Results<OrganizersEntity> {
+    private var organizersEntities: Results<OrganizerEntity> {
         let conf = Realm.Configuration(schemaVersion: 1)
         let realm = try! Realm(configuration: conf)
-        return realm.objects(OrganizersEntity.self)
+        return realm.objects(OrganizerEntity.self)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -25,8 +25,8 @@ class SpeakersViewController: UIViewController, UITableViewDelegate, UITableView
 //        return GlobalVariables.realm.objects(SpeakersPresentationsEntity.self).filter("conferenceId == %@", GlobalVariables.currentConferenceID)
 //    }
     
-    private var speakerEntities: Results<SpeakersEntity> {
-        return GlobalVariables.realm.objects(SpeakersEntity.self)
+    private var speakerEntities: Results<SpeakerEntity> {
+        return GlobalVariables.realm.objects(SpeakerEntity.self)
     }
     
     override func viewDidLoad() {
@@ -72,13 +72,13 @@ class SpeakersViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func setModal(withEntity entity: SpeakersEntity) {
-        nameLabel.text = entity.name
+    func setModal(withEntity entity: SpeakerEntity) {
+        nameLabel.text = entity.firstName
         if(nameLabel.text != nil) {
             nameLabel.text! += " "
-            nameLabel.text! += entity.surname ?? ""
+            nameLabel.text! += entity.lastName ?? ""
         } else {
-            nameLabel.text = entity.surname
+            nameLabel.text = entity.lastName
         }
         universityLabel.text = entity.company
         //emailLabel.text = entity.

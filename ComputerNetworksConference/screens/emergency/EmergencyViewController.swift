@@ -24,10 +24,10 @@ class EmergencyViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var number: UILabel!
     //TODO
-    private var emergencyNumbersEntities: Results<EmergencyNumbersEntity> {
+    private var emergencyNumbersEntities: Results<EmergencyNumberEntity> {
         let conf = Realm.Configuration(schemaVersion: 1)
         let realm = try! Realm(configuration: conf)
-        return realm.objects(EmergencyNumbersEntity.self)
+        return realm.objects(EmergencyNumberEntity.self)
     }
     
     override func viewDidLoad() {

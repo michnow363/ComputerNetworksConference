@@ -13,8 +13,8 @@ class AccommodationViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var accommodationTableView: UITableView!
     
-    private var accomodationEntites: Results<AccommodationsEntity> {
-        return GlobalVariables.realm.objects(AccommodationsEntity.self)
+    private var accomodationEntites: Results<AccommodationEntity> {
+        return GlobalVariables.realm.objects(AccommodationEntity.self)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

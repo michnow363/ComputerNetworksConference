@@ -1,18 +1,21 @@
 //
-//  Emergency_numbers.swift
+//  PointOfInterestEntity.swift
 //  ComputerNetworksConference
 //
-//  Created by Ola on 29/05/2020.
+//  Created by Michal on 11/1/20.
 //  Copyright © 2020 OtherCoders. All rights reserved.
 //
 
 import RealmSwift
 
-class EmergencyNumberEntity: Object {
+class PointOfInterestEntity: Object {
     @objc dynamic var ID : Int = 0
     @objc dynamic var name : String?
-    @objc dynamic var number : String?
-  
+    @objc dynamic var address : String?
+    @objc dynamic var contact : String?
+    //ids
+    @objc dynamic var pointOfInterestTypeId : Int = 0
+    
     override static func primaryKey() -> String? {
         return "ID"
     }

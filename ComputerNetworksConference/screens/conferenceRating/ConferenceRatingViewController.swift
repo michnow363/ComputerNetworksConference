@@ -55,12 +55,12 @@ class ConferenceRatingViewController: UIViewController, UIPickerViewDataSource, 
     }
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
-        let entity = ConferenceRatesEntity(conferenceRateDescription: nil, value: 0)
+        //let entity = RateEntity(conferenceRateDescription: nil, value: 0)
         
-        entity.value = StarPickerView.selectedRow(inComponent: 0) + 1
+        //entity.value = StarPickerView.selectedRow(inComponent: 0) + 1
         
-        try! GlobalVariables.realm.write{
-            GlobalVariables.realm.add(entity)
-        }
+        //try! GlobalVariables.realm.write{
+        //    GlobalVariables.realm.add(entity)
+        //}
     }
 }

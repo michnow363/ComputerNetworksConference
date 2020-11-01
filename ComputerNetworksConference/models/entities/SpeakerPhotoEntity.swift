@@ -1,5 +1,5 @@
 //
-//  UsersTypesEntity.swift
+//  SpeakersPhotos.swift
 //  ComputerNetworksConference
 //
 //  Created by Ola on 29/05/2020.
@@ -8,11 +8,12 @@
 
 import RealmSwift
 
-class UsersTypesEntity: Object {
-    @objc dynamic var typeId : Int = 0
-    @objc dynamic var type : String?
+class SpeakerPhotoEntity: Object {
+    @objc dynamic var ID : Int = 0
+    @objc dynamic var path : String?
+    @objc dynamic var speakerId : Int = 0
     
     override static func primaryKey() -> String? {
-        return "typeId"
+        return "speakerPhotoId"
     }
 }

@@ -17,10 +17,10 @@ class BuildingViewController: UIViewController {
     @IBOutlet weak var sideMenuTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var photo: UIImageView!
     
-    private var buildingsPlansEntities: Results<BuildingsPlansEntity> {
+    private var buildingsPlansEntities: Results<BuildingPlanEntity> {
          let conf = Realm.Configuration(schemaVersion: 1)
          let realm = try! Realm(configuration: conf)
-         return realm.objects(BuildingsPlansEntity.self)
+         return realm.objects(BuildingPlanEntity.self)
      }
     
     
@@ -37,7 +37,7 @@ class BuildingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
        var entity = buildingsPlansEntities[0]
-        let url = URL(string: buildingsPlansEntities[0].buildingsPlan ?? "")!
+        let url = URL(string: buildingsPlansEntities[0].path ?? "")!
         downloadImage(from: url)
         hideSideMenu()
     }

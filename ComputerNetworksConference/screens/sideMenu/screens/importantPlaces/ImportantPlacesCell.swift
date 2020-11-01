@@ -14,9 +14,9 @@ class ImportantPlacesCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     
-    func setCell(withEntity entity: MedicalPointInformationEntity) {
+    func setCell(withEntity entity: PointOfInterestEntity) {
         nameLabel.text = entity.name
         addressLabel.text = entity.address
-        numberLabel.text = entity.number
+        numberLabel.text = entity.contact
     }
 }

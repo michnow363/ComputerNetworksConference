@@ -9,7 +9,7 @@
 import RealmSwift
 
 class ConferenceEntity: Object {
-    @objc dynamic var conferenceId : Int = 0
+    @objc dynamic var ID : Int = 0
     @objc dynamic var address : String?
     @objc dynamic var country : String?
     @objc dynamic var confDescription : String?
@@ -19,6 +19,6 @@ class ConferenceEntity: Object {
     @objc dynamic var youtubeLink : String?
     
     override static func primaryKey() -> String? {
-        return "conferenceId"
+        return "ID"
     }
 }

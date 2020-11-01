@@ -15,8 +15,8 @@ class SponsorsViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.popViewController(animated: true)
     }
     @IBOutlet weak var sponsorsTable: UITableView!
-    private var sponsorEntities: Results<SponsorsEntity> {
-        return GlobalVariables.realm.objects(SponsorsEntity.self)
+    private var sponsorEntities: Results<SponsorEntity> {
+        return GlobalVariables.realm.objects(SponsorEntity.self)
     }
     
     override func viewDidLoad() {

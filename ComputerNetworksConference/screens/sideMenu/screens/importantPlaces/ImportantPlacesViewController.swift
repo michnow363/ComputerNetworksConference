@@ -11,8 +11,8 @@ import UIKit
 
 class ImportantPlacesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var importantPlacesTableView: UITableView!
-    var importantPlacesEntities: Results<MedicalPointInformationEntity> {
-        return GlobalVariables.realm.objects(MedicalPointInformationEntity.self)
+    var importantPlacesEntities: Results<PointOfInterestEntity> {
+        return GlobalVariables.realm.objects(PointOfInterestEntity.self)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return importantPlacesEntities.count

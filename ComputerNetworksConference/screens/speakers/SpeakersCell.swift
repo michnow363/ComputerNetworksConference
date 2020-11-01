@@ -14,13 +14,13 @@ class SpeakersCell : UITableViewCell {
     @IBOutlet weak var universityLabel: UILabel!
     @IBOutlet weak var logoImage: UIImageView!
     
-    func setCell(withEntity entity: SpeakersEntity) {
-        personalInfoLabel.text = entity.name
+    func setCell(withEntity entity: SpeakerEntity) {
+        personalInfoLabel.text = entity.firstName
         if(personalInfoLabel.text != nil) {
             personalInfoLabel.text! += " "
-            personalInfoLabel.text! += entity.surname ?? ""
+            personalInfoLabel.text! += entity.lastName ?? ""
         } else {
-            personalInfoLabel.text = entity.surname
+            personalInfoLabel.text = entity.lastName
         }
         universityLabel.text = entity.company
     }

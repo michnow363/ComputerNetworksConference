@@ -19,10 +19,9 @@ class ContactCell: UITableViewCell{
     
     @IBOutlet weak var email: UILabel!
     
-    func setCell(withEntity entity: OrganizersEntity){
-        name.text = entity.name
+    func setCell(withEntity entity: OrganizerEntity){
+        name.text = entity.lastName
         university.text = entity.university
-        number.text = entity.number
-        email.text = entity.email
+        number.text = entity.contact
     }
 }

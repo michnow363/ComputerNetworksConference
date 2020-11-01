@@ -12,7 +12,7 @@ class EmergencyCell: UITableViewCell{
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var number: UILabel!
    
-    func setCell(withEntity entity: EmergencyNumbersEntity) {
+    func setCell(withEntity entity: EmergencyNumberEntity) {
         name.text = entity.name
         number.text = entity.number
     }

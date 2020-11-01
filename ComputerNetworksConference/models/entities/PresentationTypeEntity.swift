@@ -1,5 +1,5 @@
 //
-//  ConferenceRateCriterionsEntity.swift
+//  Presentation_types.swift
 //  ComputerNetworksConference
 //
 //  Created by Ola on 29/05/2020.
@@ -8,11 +8,12 @@
 
 import RealmSwift
 
-class ConferenceRateCriterionsEntity: Object {
-    @objc dynamic var conferenceRateCriterionId : Int = 0
+class PresentationTypeEntity: Object {
+    @objc dynamic var ID : Int = 0
+    @objc dynamic var presentationTypeDescription : String?
     @objc dynamic var name : String?
-    
+   
     override static func primaryKey() -> String? {
-        return "conferenceRateCriterionId"
+        return "ID"
     }
 }

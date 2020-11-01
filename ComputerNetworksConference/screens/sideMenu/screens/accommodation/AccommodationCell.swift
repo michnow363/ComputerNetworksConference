@@ -15,7 +15,7 @@ class AccommodationCell: UITableViewCell{
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     
-    func setCell(withEntity entity: AccommodationsEntity) {
+    func setCell(withEntity entity: AccommodationEntity) {
         nameLabel.text = entity.name
         addressLabel.text = entity.address
         numberLabel.text = entity.number

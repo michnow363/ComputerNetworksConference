@@ -8,13 +8,14 @@
 
 import RealmSwift
 
-class ConferenceEmergencyNumbersEntity: Object {
-    @objc dynamic var conferenceEmergencyNumberId : Int = 0
+class ConferenceEmergencyNumberEntity: Object {
+    @objc dynamic var ID : Int = 0
+    //ids
     @objc dynamic var conferenceId : Int = 0
     @objc dynamic var emergencyNumberId : Int = 0
     
     override static func primaryKey() -> String? {
-        return "conferenceEmergencyNumberId"
+        return "ID"
     }
 }
 

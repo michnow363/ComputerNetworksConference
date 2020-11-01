@@ -11,7 +11,7 @@ import RealmSwift
 struct GlobalVariables {
     static var currentConferenceID: Int = {
         let conference = realm.objects(ConferenceEntity.self).filter("title == 'Computer Networks Conference'").first
-        return conference?.conferenceId ?? 0
+        return conference?.ID ?? 0
     }()
 
     static let realm: Realm = {

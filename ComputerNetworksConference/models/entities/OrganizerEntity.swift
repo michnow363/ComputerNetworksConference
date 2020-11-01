@@ -8,15 +8,16 @@
 
 import RealmSwift
 
-class OrganizersEntity: Object {
-    @objc dynamic var organizerId : Int = 0
-    @objc dynamic var name : String?
+class OrganizerEntity: Object {
+    @objc dynamic var ID : Int = 0
+    @objc dynamic var firstName : String?
+    @objc dynamic var lastName : String?
     @objc dynamic var university : String?
-    @objc dynamic var number : String?
-    @objc dynamic var email : String?
+    @objc dynamic var company : String?
+    @objc dynamic var contact : String?
     
     override static func primaryKey() -> String? {
-        return "organizerId"
+        return "ID"
     }
 }
            

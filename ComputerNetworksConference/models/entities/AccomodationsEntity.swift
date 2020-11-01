@@ -8,14 +8,14 @@
 
 import RealmSwift
 
-class AccommodationsEntity: Object {
-    @objc dynamic var accommodationId : Int = 0
+class AccommodationEntity: Object {
+    @objc dynamic var ID : Int = 0
     @objc dynamic var address : String?
     @objc dynamic var name : String?
     @objc dynamic var number : String?
     
     override static func primaryKey() -> String? {
-        return "accommodationId"
+        return "ID"
     }
 }
 

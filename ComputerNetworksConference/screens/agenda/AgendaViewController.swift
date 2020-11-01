@@ -27,10 +27,10 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var confDescription: UILabel!
     
     //TODO
-    private var presentationEntities: Results<PresentationsEntity> {
+    private var presentationEntities: Results<PresentationEntity> {
         let conf = Realm.Configuration(schemaVersion: 1)
         let realm = try! Realm(configuration: conf)
-        return realm.objects(PresentationsEntity.self)
+        return realm.objects(PresentationEntity.self)
     }
     
     override func viewDidLoad() {
@@ -65,7 +65,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         modalBackground.alpha = 0.0
     }
     //TODO SPEAKER
-    func showEventDetailsModal(withEntity entity: PresentationsEntity){
+    func showEventDetailsModal(withEntity entity: PresentationEntity){
         place.text = entity.place
         confDescription.text = entity.presentationDescription
         modalBackground.alpha = 1.0

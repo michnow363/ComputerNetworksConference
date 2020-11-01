@@ -14,7 +14,7 @@ class SponsorsCell : UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var websiteLabel: UILabel!
     
-    func setCell(withEntity entity: SponsorsEntity) {
+    func setCell(withEntity entity: SponsorEntity) {
         nameLabel.text = entity.name
         websiteLabel.text = entity.website
     }
