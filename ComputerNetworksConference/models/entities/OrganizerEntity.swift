@@ -12,7 +12,7 @@ class OrganizerEntity: Object {
     @objc dynamic var ID : Int = 0
     @objc dynamic var firstName : String?
     @objc dynamic var lastName : String?
-    @objc dynamic var university : String?
+    @objc dynamic var affilation : String?
     @objc dynamic var company : String?
     @objc dynamic var contact : String?
     

@@ -22,7 +22,6 @@ struct GlobalVariables {
 }
 //let conf = Realm.Configuration(schemaVersion: 1)
 //let realm = try! Realm(configuration: conf)
-//print(Realm.Configuration.defaultConfiguration.fileURL)
 /*try! realm.write {
     let pres = PresentationsEntity()
     pres.authors = "Mr Smith"

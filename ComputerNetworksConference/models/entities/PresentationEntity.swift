@@ -13,6 +13,7 @@ class PresentationEntity: Object {
     @objc dynamic var startDate : Date?
     @objc dynamic var endDate : Date?
     @objc dynamic var place : String?
+    @objc dynamic var authors : String?
     @objc dynamic var presentationDescription : String?
     @objc dynamic var title : String?
     //ids

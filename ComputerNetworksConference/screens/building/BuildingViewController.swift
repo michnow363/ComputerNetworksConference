@@ -32,7 +32,7 @@ class BuildingViewController: UIViewController {
     }
     
     func downloadImage(from url: URL) {
-        photo.downloaded(from: "https://cdn.arstechnica.net/wp-content/uploads/2018/06/macOS-Mojave-Dynamic-Wallpaper-transition.jpg")
+        photo.downloaded(from: url)
     }
     
     override func viewWillAppear(_ animated: Bool) {

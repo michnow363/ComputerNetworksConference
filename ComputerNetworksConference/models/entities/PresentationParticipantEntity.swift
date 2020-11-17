@@ -1,5 +1,5 @@
 //
-//  Accomodations.swift
+//  SpeakersPresentationsEntity.swift
 //  ComputerNetworksConference
 //
 //  Created by Ola on 29/05/2020.
@@ -8,15 +8,14 @@
 
 import RealmSwift
 
-class AccommodationEntity: Object {
+class PresentationParticipantEntity: Object {
     @objc dynamic var ID : Int = 0
-    @objc dynamic var address : String?
-    @objc dynamic var name : String?
-    @objc dynamic var number : String?
-    @objc dynamic var website : String?
+    @objc dynamic var presentationId : Int = 0
+    @objc dynamic var participantId : Int = 0
+    @objc dynamic var isAuthor : Bool = true
+    @objc dynamic var isSpeaker : Bool = true
     
     override static func primaryKey() -> String? {
         return "ID"
     }
 }
-

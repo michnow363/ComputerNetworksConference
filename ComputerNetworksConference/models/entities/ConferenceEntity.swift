@@ -16,7 +16,7 @@ class ConferenceEntity: Object {
     @objc dynamic var endDate : Date?
     @objc dynamic var startDate : Date?
     @objc dynamic var title : String?
-    @objc dynamic var youtubeLink : String?
+    @objc dynamic var socialMedia : String?
     
     override static func primaryKey() -> String? {
         return "ID"

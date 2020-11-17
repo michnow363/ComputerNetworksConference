@@ -21,7 +21,7 @@ class ContactCell: UITableViewCell{
     
     func setCell(withEntity entity: OrganizerEntity){
         name.text = entity.lastName
-        university.text = entity.university
+        university.text = entity.affilation
         number.text = entity.contact
     }
 }

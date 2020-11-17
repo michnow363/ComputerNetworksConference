@@ -10,12 +10,10 @@ import RealmSwift
 
 class SponsorEntity: Object {
     @objc dynamic var ID : Int = 0
-    @objc dynamic var address : String?
     @objc dynamic var country : String?
     @objc dynamic var sponsorsDescription : String?
     @objc dynamic var logoPath : String?
     @objc dynamic var name : String?
-    @objc dynamic var number : String?
     @objc dynamic var website : String?
     
     override static func primaryKey() -> String? {

@@ -13,6 +13,7 @@ class PointOfInterestEntity: Object {
     @objc dynamic var name : String?
     @objc dynamic var address : String?
     @objc dynamic var contact : String?
+    @objc dynamic var pointOfInterestDescription : String?
     //ids
     @objc dynamic var pointOfInterestTypeId : Int = 0
     

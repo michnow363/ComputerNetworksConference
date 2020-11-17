@@ -8,10 +8,10 @@
 
 import RealmSwift
 
-class SpeakerEntity: Object {
+class ParticipantEntity: Object {
     @objc dynamic var ID : Int = 0
     @objc dynamic var company : String?
-    @objc dynamic var university : String?
+    @objc dynamic var affilation : String?
     @objc dynamic var country : String?
     @objc dynamic var speakerDescription : String?
     @objc dynamic var firstName : String?

@@ -14,7 +14,7 @@ class SpeakersCell : UITableViewCell {
     @IBOutlet weak var universityLabel: UILabel!
     @IBOutlet weak var logoImage: UIImageView!
     
-    func setCell(withEntity entity: SpeakerEntity) {
+    func setCell(withEntity entity: ParticipantEntity) {
         personalInfoLabel.text = entity.firstName
         if(personalInfoLabel.text != nil) {
             personalInfoLabel.text! += " "

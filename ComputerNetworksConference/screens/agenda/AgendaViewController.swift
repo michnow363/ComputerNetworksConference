@@ -101,7 +101,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AgendaHeaderCell")
         if let agendaHeaderCell = cell as? AgendaHeaderCell {
-            agendaHeaderCell.eventData.text = "Date"
+            agendaHeaderCell.eventData.text = "05/11/2020"
         }
        
         return cell

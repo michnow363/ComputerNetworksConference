@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 import GoogleMaps
 import GooglePlaces
 
@@ -16,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        print(Realm.Configuration.defaultConfiguration.fileURL)
         GMSServices.provideAPIKey("AIzaSyAxzKO-jtBEhwXXRAtOrFURkyjD2TkkUtc")
         GMSPlacesClient.provideAPIKey("AIzaSyAxzKO-jtBEhwXXRAtOrFURkyjD2TkkUtc")
         return true
