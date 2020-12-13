@@ -16,6 +16,7 @@
 		5B12AD41244CDEC100597F04 /* ConferenceRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12AD40244CDEC100597F04 /* ConferenceRatingViewController.swift */; };
 		5B12AD43244CDEF500597F04 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12AD42244CDEF500597F04 /* ContactViewController.swift */; };
 		5B12AD45244CDF2100597F04 /* LocationTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12AD44244CDF2100597F04 /* LocationTabBarViewController.swift */; };
+		5B1A038A2577E03B00C57B09 /* MessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A03892577E03B00C57B09 /* MessageEntity.swift */; };
 		5B2808542482537C00ED760E /* ConferenceAccommodationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28084E2482537B00ED760E /* ConferenceAccommodationEntity.swift */; };
 		5B2808562482537C00ED760E /* ConferenceEmergencyNumberEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2808502482537C00ED760E /* ConferenceEmergencyNumberEntity.swift */; };
 		5B28085C248253A100ED760E /* PresentationTypeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B280858248253A000ED760E /* PresentationTypeEntity.swift */; };
@@ -47,9 +48,11 @@
 		5B6CF47C254DB37D0012489F /* RateCriterionTypeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CF47B254DB37D0012489F /* RateCriterionTypeEntity.swift */; };
 		5B6CF47E254DB3E20012489F /* RateCriterionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CF47D254DB3E20012489F /* RateCriterionEntity.swift */; };
 		5B6CF480254DBEAC0012489F /* UserRoleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CF47F254DBEAC0012489F /* UserRoleEntity.swift */; };
+		5B6FB88D2573F32D003397A5 /* MessagePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FB88C2573F32D003397A5 /* MessagePanelViewController.swift */; };
 		5B70330E244C502D0040FC2A /* BuildingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70330D244C502D0040FC2A /* BuildingViewController.swift */; };
 		5B84253E2445FF90000EE795 /* EmergencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B84253D2445FF90000EE795 /* EmergencyViewController.swift */; };
 		5B84254024460160000EE795 /* EmergencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B84253F24460160000EE795 /* EmergencyCell.swift */; };
+		5B86A1522581524B005397EE /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B86A1512581524A005397EE /* MessageViewController.swift */; };
 		5B8A14C824648FCE00063F5D /* ImportantPlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A14C724648FCE00063F5D /* ImportantPlacesCell.swift */; };
 		5B9B9D322451A5A2008CF7AE /* SpeakersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9B9D312451A5A2008CF7AE /* SpeakersCell.swift */; };
 		5B9B9D342451A5EC008CF7AE /* SponsorsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9B9D332451A5EC008CF7AE /* SponsorsCell.swift */; };
@@ -101,6 +104,7 @@
 		5B12AD40244CDEC100597F04 /* ConferenceRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceRatingViewController.swift; sourceTree = "<group>"; };
 		5B12AD42244CDEF500597F04 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		5B12AD44244CDF2100597F04 /* LocationTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTabBarViewController.swift; sourceTree = "<group>"; };
+		5B1A03892577E03B00C57B09 /* MessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEntity.swift; sourceTree = "<group>"; };
 		5B28084E2482537B00ED760E /* ConferenceAccommodationEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceAccommodationEntity.swift; sourceTree = "<group>"; };
 		5B2808502482537C00ED760E /* ConferenceEmergencyNumberEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceEmergencyNumberEntity.swift; sourceTree = "<group>"; };
 		5B280858248253A000ED760E /* PresentationTypeEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationTypeEntity.swift; sourceTree = "<group>"; };
@@ -138,9 +142,11 @@
 		5B6CF47B254DB37D0012489F /* RateCriterionTypeEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateCriterionTypeEntity.swift; sourceTree = "<group>"; };
 		5B6CF47D254DB3E20012489F /* RateCriterionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCriterionEntity.swift; sourceTree = "<group>"; };
 		5B6CF47F254DBEAC0012489F /* UserRoleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleEntity.swift; sourceTree = "<group>"; };
+		5B6FB88C2573F32D003397A5 /* MessagePanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePanelViewController.swift; sourceTree = "<group>"; };
 		5B70330D244C502D0040FC2A /* BuildingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingViewController.swift; sourceTree = "<group>"; };
 		5B84253D2445FF90000EE795 /* EmergencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewController.swift; sourceTree = "<group>"; };
 		5B84253F24460160000EE795 /* EmergencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyCell.swift; sourceTree = "<group>"; };
+		5B86A1512581524A005397EE /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		5B8A14C724648FCE00063F5D /* ImportantPlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantPlacesCell.swift; sourceTree = "<group>"; };
 		5B9B9D312451A5A2008CF7AE /* SpeakersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersCell.swift; sourceTree = "<group>"; };
 		5B9B9D332451A5EC008CF7AE /* SponsorsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsCell.swift; sourceTree = "<group>"; };
@@ -365,6 +371,15 @@
 			path = models;
 			sourceTree = "<group>";
 		};
+		5B6FB88B2573F20C003397A5 /* messages */ = {
+			isa = PBXGroup;
+			children = (
+				5B6FB88C2573F32D003397A5 /* MessagePanelViewController.swift */,
+				5B86A1512581524A005397EE /* MessageViewController.swift */,
+			);
+			path = messages;
+			sourceTree = "<group>";
+		};
 		5B70330C244C4F390040FC2A /* building */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +425,7 @@
 				5BDE4B4A2564667B00BEDC60 /* ConferencePhotoEntity.swift */,
 				5BDE4B4C25646D3000BEDC60 /* PresentationPhotoEntity.swift */,
 				5BDE4B4E25646DB500BEDC60 /* PointOfInterestIconEntity.swift */,
+				5B1A03892577E03B00C57B09 /* MessageEntity.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -435,6 +451,7 @@
 		5BDCA572243CDAE900D73C3D /* screens */ = {
 			isa = PBXGroup;
 			children = (
+				5B6FB88B2573F20C003397A5 /* messages */,
 				5BC2B22F2538C6580053EB5D /* map */,
 				5B12AD34244CD94D00597F04 /* organizers */,
 				5B12AD35244CD99600597F04 /* speakers */,
@@ -670,6 +687,7 @@
 				5BAA8CC1243CE36E004511E7 /* PhotoCell.swift in Sources */,
 				5B8A14C824648FCE00063F5D /* ImportantPlacesCell.swift in Sources */,
 				5B12AD43244CDEF500597F04 /* ContactViewController.swift in Sources */,
+				5B6FB88D2573F32D003397A5 /* MessagePanelViewController.swift in Sources */,
 				5B6CF480254DBEAC0012489F /* UserRoleEntity.swift in Sources */,
 				5BC2B2312538C66F0053EB5D /* MapViewController.swift in Sources */,
 				5B3EFCD1254EFA3D0049521E /* EmergencyNumbersEntity.swift in Sources */,
@@ -721,6 +739,8 @@
 				5B3EFCDB254F075A0049521E /* ConferenceOrganizerEntity.swift in Sources */,
 				5B12AD3D244CDDAA00597F04 /* OrganizersViewController.swift in Sources */,
 				5B84254024460160000EE795 /* EmergencyCell.swift in Sources */,
+				5B86A1522581524B005397EE /* MessageViewController.swift in Sources */,
+				5B1A038A2577E03B00C57B09 /* MessageEntity.swift in Sources */,
 				5B4960F82423F2750037D3B9 /* SceneDelegate.swift in Sources */,
 				5BF1EBDF2481366800D5C2D6 /* SponsorEntity.swift in Sources */,
 				5B84253E2445FF90000EE795 /* EmergencyViewController.swift in Sources */,

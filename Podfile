@@ -7,4 +7,5 @@ target 'ComputerNetworksConference' do
 	pod 'RealmSwift', '5.0.0'
 	pod 'GoogleMaps', '2.7'
 	pod 'GooglePlaces', '2.7'
+	pod 'MessageKit'
 end
