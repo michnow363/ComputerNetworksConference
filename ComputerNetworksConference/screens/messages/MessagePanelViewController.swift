@@ -24,26 +24,34 @@ struct Message: MessageType {
 
 class MessagePanelViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, InputBarAccessoryViewDelegate {
     
+    static func getViewController() -> MessagePanelViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "MessagePanelViewController") as! MessagePanelViewController
+        return vc
+    }
+    
     private var messageEntities: Results<MessageEntity>!
     
-    let currentUser = Sender(senderId: "2", displayName: "Me")
+    private let currentUser = Sender(senderId: "2", displayName: "Me")
+    private var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        messageEntities = GlobalVariables.realm.objects(MessageEntity.self)
+        updateMessages()
         messageInputBar.delegate = self
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-//        let notificationToken = messageEntities.observe { (changes: RealmCollectionChange) in
-//            switch changes {
-//            case .update(_, let deletions, let insertions, let modifications):
-//                self.messagesCollectionView.reloadData()
-//            default:
-//                break
-//            }
-//        }
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateMessages), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func updateMessages() {
+        messageEntities = GlobalVariables.realm.objects(MessageEntity.self)
+        messagesCollectionView.reloadData()
+    }
+    
+    deinit {
+        timer.invalidate()
     }
     
     func currentSender() -> SenderType {
