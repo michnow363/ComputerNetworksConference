@@ -11,17 +11,19 @@ PODS:
   - InputBarAccessoryView/Core (4.3.3)
   - MessageKit (3.1.0):
     - InputBarAccessoryView (~> 4.3.0)
-  - Realm (5.0.0):
-    - Realm/Headers (= 5.0.0)
-  - Realm/Headers (5.0.0)
-  - RealmSwift (5.0.0):
-    - Realm (= 5.0.0)
+  - Realm (10.5.0):
+    - Realm/Headers (= 10.5.0)
+  - Realm/Headers (10.5.0)
+  - RealmSwift (10.5.0):
+    - Realm (= 10.5.0)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - GoogleMaps (= 2.7)
   - GooglePlaces (= 2.7)
   - MessageKit
-  - RealmSwift (= 5.0.0)
+  - RealmSwift (= 10.5.0)
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -31,15 +33,17 @@ SPEC REPOS:
     - MessageKit
     - Realm
     - RealmSwift
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
   InputBarAccessoryView: 8e7fc09e9cba75e0fee5da13450e15c194806f69
   MessageKit: 3beb578737a5aa2bba25cc27c7b6d6faa09af5a7
-  Realm: 76066d333de26f97e9caedaa85ee3ff4a62ca265
-  RealmSwift: c1bdff09b422569dc6881410d9ccf712bcdb79b0
+  Realm: e1c22c3d83b229afb70ebc10e1771c91e9542d12
+  RealmSwift: 6fc078d9d3fd7e58c71bfdbb694e252462f112a5
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 63aa45f5d798d64610c725080b5c67889f215580
+PODFILE CHECKSUM: ba2aef113b2c8757e57e4f2409284bdfbd4f50ee
 
-COCOAPODS: 1.9.2
+COCOAPODS: 1.10.0
