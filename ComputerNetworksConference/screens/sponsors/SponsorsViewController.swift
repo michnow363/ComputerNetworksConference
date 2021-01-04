@@ -64,4 +64,12 @@ class SponsorsViewController: UIViewController, UITableViewDelegate, UITableView
          }
          return cell
      }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let urlString = sponsorEntities[indexPath.row].website {
+            if let url = URL(string: urlString) {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
 }

@@ -30,6 +30,7 @@ class EmergencyViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         emergencyTable.delegate = self
         emergencyTable.dataSource = self
+        
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideSideModal))
         modalBackground.addGestureRecognizer(gestureRecognizer)
         modalBackground.isUserInteractionEnabled = true

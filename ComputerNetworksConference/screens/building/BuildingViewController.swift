@@ -38,7 +38,7 @@ class BuildingViewController: UIViewController {
     }
     
     func downloadImage() {
-        let url = URL(string: "http://13.58.108.102:3030/" + (buildingsPlansEntities?[0].path ?? ""))!
+        let url = URL(string: "http://13.58.108.102/Resources/Presentations/aef67831-c2b8-4a09-bbe0-e7a2797bcccc.jpg")!
         photo.downloaded(from: url)
     }
     

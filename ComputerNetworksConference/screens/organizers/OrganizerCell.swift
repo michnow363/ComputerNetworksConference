@@ -16,7 +16,7 @@ class OrganizerCell: UITableViewCell {
     @IBOutlet weak var contactLabel: UILabel!
     
     func setCell(with entity: OrganizerEntity) {
-        nameLabel.text = (entity.firstName ?? "") + (entity.lastName ?? "")
+        nameLabel.text = (entity.firstName ?? "") + " " + (entity.lastName ?? "")
         affilationLabel.text = entity.affilation
         companyLabel.text = entity.company
         contactLabel.text = entity.contact

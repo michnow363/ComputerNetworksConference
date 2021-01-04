@@ -33,6 +33,7 @@ class ConferenceRatingViewController: UIViewController, UIPickerViewDataSource, 
         super.viewWillAppear(animated)
         RestApiManager.sharedInstance.updateLocalDatabase(with: .rateCriterion, completion: {
             DispatchQueue.main.async {
+                self.rateCriterionEntities = []
                 self.rateCriterionEntities.append(contentsOf: GlobalVariables.realm.objects(RateCriterionEntity.self))
                 self.StarPickerView.reloadComponent(0)
             }

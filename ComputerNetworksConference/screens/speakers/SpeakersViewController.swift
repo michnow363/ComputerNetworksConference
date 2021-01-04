@@ -25,10 +25,6 @@
     private var participantEntities = [ParticipantEntity]()
     private var presentationParticipantsEntities = [PresentationParticipantEntity]()
 
-    private var speakerEntities: Results<ParticipantEntity> {
-        return GlobalVariables.realm.objects(ParticipantEntity.self)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         speakersTable.delegate = self
@@ -101,18 +97,18 @@
         self.navigationController?.popViewController(animated: true)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return speakerEntities.count
+        return participantEntities.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SpeakersCell", for: indexPath)
         if let speakersCell = cell as? SpeakersCell {
-            speakersCell.setCell(withEntity: speakerEntities[indexPath.row])
+            speakersCell.setCell(withEntity: participantEntities[indexPath.row])
         }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        setModal(withEntity: speakerEntities[indexPath.row])
+        setModal(withEntity: participantEntities[indexPath.row])
         showSpeakerDetailsModal()
         tableView.deselectRow(at: indexPath, animated: true)
     }

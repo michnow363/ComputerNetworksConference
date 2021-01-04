@@ -25,8 +25,9 @@ class OrganizersViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewWillAppear(animated)
         RestApiManager.sharedInstance.updateLocalDatabase(with: .organizers, completion: {
             RestApiManager.sharedInstance.updateLocalDatabase(with: .conferenceOrganizers, completion: { DispatchQueue.main.async {
-                    self.getOrganizerEntities(GlobalVariables.realm.objects(ConferenceOrganizerEntity.self))
-                    self.organizersTableView.reloadData()
+                self.organizerEntities = []
+                self.getOrganizerEntities(GlobalVariables.realm.objects(ConferenceOrganizerEntity.self))
+                self.organizersTableView.reloadData()
                 }
             })
         })

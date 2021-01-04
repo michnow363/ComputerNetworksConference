@@ -13,11 +13,20 @@ class AccommodationViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var accommodationTableView: UITableView!
     
+    private var accomodationEntites = [AccommodationEntity]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        accommodationTableView.delegate = self
+        accommodationTableView.dataSource = self
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        accomodationEntites.append(contentsOf: GlobalVariables.realm.objects(AccommodationEntity.self))
         RestApiManager.sharedInstance.updateLocalDatabase(with: .accommodation, completion: {
             RestApiManager.sharedInstance.updateLocalDatabase(with: .conferenceAccommodation, completion: { DispatchQueue.main.async {
-                    self.accomodationEntites = []
+                self.accomodationEntites = []
                     self.getAccommodationEntities(GlobalVariables.realm.objects(ConferenceAccommodationEntity.self))
                     self.accommodationTableView.reloadData()
                 }
@@ -39,8 +48,6 @@ class AccommodationViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    private var accomodationEntites = [AccommodationEntity]()
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return accomodationEntites.count
     }
@@ -55,15 +62,18 @@ class AccommodationViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "MapSegue", sender: nil)
+        if let address = accomodationEntites[indexPath.row].address {
+            tableView.deselectRow(at: indexPath, animated: true)
+            performSegue(withIdentifier: "MapSegue", sender: address)
+        }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        accommodationTableView.delegate = self
-        accommodationTableView.dataSource = self
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? MapViewController{
+            if let address = sender as? String {
+                controller.address = address
+            }
+        }
     }
-    
 }
 

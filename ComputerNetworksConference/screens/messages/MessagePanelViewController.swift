@@ -37,7 +37,7 @@ class MessagePanelViewController: MessagesViewController, MessagesDataSource, Me
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateMessages()
+        self.messageEntities = GlobalVariables.realm.objects(MessageEntity.self)
         messageInputBar.delegate = self
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self

@@ -71,9 +71,7 @@ class RestApiManager: NSObject {
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     print(error!)
-                    return
-                }
-                if let data = data {
+                } else if let data = data {
                     do {
                         switch type {
                         case .accommodation:
@@ -173,11 +171,11 @@ class RestApiManager: NSObject {
                             let entitySequence: [ConferencePointOfInterestEntity] = self.getEntitySequence(from: decodableSequence)
                             self.saveToRealmDatabase(entities: entitySequence)
                         }
-                        completion()
                     } catch {
                         print(error)
                     }
                 }
+                completion()
             }
             task.resume()
         }

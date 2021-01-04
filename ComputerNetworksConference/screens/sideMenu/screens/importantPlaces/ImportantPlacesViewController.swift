@@ -14,6 +14,12 @@ class ImportantPlacesViewController: UIViewController, UITableViewDelegate, UITa
     
     var importantPlacesEntities = [PointOfInterestEntity]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        importantPlacesTableView.delegate = self
+        importantPlacesTableView.dataSource = self
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         RestApiManager.sharedInstance.updateLocalDatabase(with: .pointOfInterest, completion: {
@@ -53,14 +59,17 @@ class ImportantPlacesViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "MapSegue", sender: nil)
+        if let address = importantPlacesEntities[indexPath.row].address {
+            tableView.deselectRow(at: indexPath, animated: true)
+            performSegue(withIdentifier: "MapSegue", sender: address)
+        }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        importantPlacesTableView.delegate = self
-        importantPlacesTableView.dataSource = self
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? MapViewController{
+            if let address = sender as? String {
+                controller.address = address
+            }
+        }
     }
-    
 }
