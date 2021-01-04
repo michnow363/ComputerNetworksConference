@@ -13,9 +13,33 @@ class AccommodationViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var accommodationTableView: UITableView!
     
-    private var accomodationEntites: Results<AccommodationEntity> {
-        return GlobalVariables.realm.objects(AccommodationEntity.self)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        RestApiManager.sharedInstance.updateLocalDatabase(with: .accommodation, completion: {
+            RestApiManager.sharedInstance.updateLocalDatabase(with: .conferenceAccommodation, completion: { DispatchQueue.main.async {
+                    self.accomodationEntites = []
+                    self.getAccommodationEntities(GlobalVariables.realm.objects(ConferenceAccommodationEntity.self))
+                    self.accommodationTableView.reloadData()
+                }
+            })
+        })
     }
+    
+    func getAccommodationEntities(_ conferenceAccommodationEntities: Results<ConferenceAccommodationEntity>){
+        let conferenceAccommodationEntities = conferenceAccommodationEntities.filter { entity in
+            return entity.conferenceId == GlobalVariables.currentConferenceID
+        }
+        let organizerEntities = GlobalVariables.realm.objects(AccommodationEntity.self)
+        for entity in organizerEntities {
+            for conferenceEntity in conferenceAccommodationEntities {
+                if entity.id == conferenceEntity.accommodationId {
+                    self.accomodationEntites.append(entity)
+                }
+            }
+        }
+    }
+    
+    private var accomodationEntites = [AccommodationEntity]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return accomodationEntites.count

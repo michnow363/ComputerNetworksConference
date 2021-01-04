@@ -8,12 +8,20 @@
 
 import RealmSwift
 
-class ParticipantPhotoEntity: Object {
-    @objc dynamic var ID : Int = 0
+class ParticipantPhotoEntity: RealmEntity {
     @objc dynamic var path : String?
     @objc dynamic var participantId : Int = 0
     
-    override static func primaryKey() -> String? {
-        return "ID"
+    required init(from decodable: Decodable) {
+        super.init(from: decodable)
+        if let decodable = decodable as? ParticipantPhotoDecodable {
+            id = decodable.id
+            path = decodable.path
+            participantId = decodable.participantID
+        }
+    }
+    
+    required init() {
+        super.init()
     }
 }

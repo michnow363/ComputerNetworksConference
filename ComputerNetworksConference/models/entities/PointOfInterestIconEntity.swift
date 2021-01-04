@@ -8,11 +8,19 @@
 
 import RealmSwift
 
-class PointOdInterestIconEntity: Object {
+class PointOfInterestIconEntity: RealmEntity {
     @objc dynamic var ID : Int = 0
     @objc dynamic var xmlContent : String?
     
-    override static func primaryKey() -> String? {
-        return "ID"
-    }
+    required init(from decodable: Decodable) {
+            super.init(from: decodable)
+            if let decodable = decodable as? PointOfInterestIconDecodable {
+                id = decodable.id
+                xmlContent = decodable.path
+            }
+        }
+        
+        required init() {
+            super.init()
+        }
 }

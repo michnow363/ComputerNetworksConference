@@ -8,12 +8,20 @@
 
 import RealmSwift
 
-class EmergencyNumberEntity: Object {
-    @objc dynamic var ID : Int = 0
+class EmergencyNumberEntity: RealmEntity {
     @objc dynamic var name : String?
     @objc dynamic var number : String?
-  
-    override static func primaryKey() -> String? {
-        return "ID"
-    }
+    
+    required init(from decodable: Decodable) {
+            super.init(from: decodable)
+            if let decodable = decodable as? EmergencyNumberDecodable {
+                id = decodable.id
+                name = decodable.name
+                number = decodable.number
+            }
+        }
+        
+        required init() {
+            super.init()
+        }
 }

@@ -6,36 +6,37 @@
 //  Copyright © 2020 OtherCoders. All rights reserved.
 //
 
+import Foundation
+import UIKit
 import RealmSwift
 
-class MessageEntity: Object {
+class MessageEntity: RealmEntity {
     
     static func getNewId() -> Int {
-        return (GlobalVariables.realm.objects(MessageEntity.self).max(ofProperty: "ID") as Int? ?? 0) + 1
-    }
-    
-    init (for sender: Sender, text: String) {
-        ID = MessageEntity.getNewId()
-        sentDate = Date()
-        senderId = Int(sender.senderId)!
-        self.text = text
+        return (GlobalVariables.realm.objects(MessageEntity.self).max(ofProperty: "id") as Int? ?? 0) + 1
     }
     
     func getMessage() -> Message {
-        return Message(sender: Sender(senderId: String(senderId), displayName: "Anonymus"), messageId: String(ID), sentDate: sentDate, kind: .text(text))
+        return Message(sender: Sender(senderId: String(senderId), displayName: "Anonymus"), messageId: String(id), sentDate: sentDate, kind: .text(text))
     }
     
-    override required init() {
-    }
-    
-    @objc dynamic var ID : Int = 0
-    @objc dynamic var sentDate : Date!
+    @objc dynamic var sentDate : Date = Date()
     @objc dynamic var text: String = ""
     //ids
     @objc dynamic var senderId : Int = 0
     
-    override static func primaryKey() -> String? {
-        return "ID"
+    required init(from decodable: Decodable) {
+        super.init(from: decodable)
+        if let decodable = decodable as? MessageDecodable {
+            id = decodable.id
+            sentDate = GlobalVariables.inFormatter.date(from: decodable.sentDate)!
+            text = decodable.content
+            senderId = decodable.mobileUserID
+        }
+    }
+    
+    required init() {
+        super.init()
     }
 }
 

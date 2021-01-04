@@ -15,17 +15,41 @@ class SponsorsViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.popViewController(animated: true)
     }
     @IBOutlet weak var sponsorsTable: UITableView!
-    private var sponsorEntities: Results<SponsorEntity> {
-        return GlobalVariables.realm.objects(SponsorEntity.self)
-    }
+    private var sponsorEntities = [SponsorEntity]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sponsorsTable.delegate = self
         sponsorsTable.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        RestApiManager.sharedInstance.updateLocalDatabase(with: .conferenceSponsor, completion: {
+            RestApiManager.sharedInstance.updateLocalDatabase(with: .sponsor, completion: { DispatchQueue.main.async {
+                    self.getSponsorEntities(GlobalVariables.realm.objects(ConferenceSponsorEntity.self))
+                    self.sponsorsTable.reloadData()
+                }
+            })
+        })
+    }
+    
+    private func getSponsorEntities(_ conferenceSponsorEntities: Results<ConferenceSponsorEntity>){
+        let conferenceSponsorEntities = conferenceSponsorEntities.filter { entity in
+            return entity.conferenceId == GlobalVariables.currentConferenceID
+        }
+        let organizerEntities = GlobalVariables.realm.objects(SponsorEntity.self)
+        for entity in organizerEntities {
+            for conferenceEntity in conferenceSponsorEntities {
+                if entity.id == conferenceEntity.sponsorId {
+                    self.sponsorEntities.append(entity)
+                }
+            }
+        }
+    }
      
-     func numberOfSections(in tableView: UITableView) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
          return 1
      }
      
@@ -40,9 +64,4 @@ class SponsorsViewController: UIViewController, UITableViewDelegate, UITableView
          }
          return cell
      }
-    
-    private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        UIApplication.shared.openURL(NSURL(string: "google.com")! as URL)
-    }
-  
 }

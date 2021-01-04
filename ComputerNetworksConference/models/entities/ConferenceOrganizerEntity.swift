@@ -8,13 +8,21 @@
 
 import RealmSwift
 
-class ConferenceOrganizerEntity: Object {
-    @objc dynamic var ID : Int = 0
-    //ids
+class ConferenceOrganizerEntity: RealmEntity {
+    
     @objc dynamic var conferenceId : Int = 0
     @objc dynamic var organizerId : Int = 0
     
-    override static func primaryKey() -> String? {
-        return "ID"
+    required init(from decodable: Decodable) {
+        super.init(from: decodable)
+        if let decodable = decodable as? ConferenceOrganizerDecodable {
+            id = decodable.id
+            conferenceId = decodable.conferenceID
+            organizerId = decodable.organizerID
+        }
+    }
+    
+    required init() {
+        super.init()
     }
 }

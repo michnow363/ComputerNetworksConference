@@ -8,15 +8,26 @@
 
 import RealmSwift
 
-class SponsorEntity: Object {
-    @objc dynamic var ID : Int = 0
+class SponsorEntity: RealmEntity {
     @objc dynamic var country : String?
     @objc dynamic var sponsorsDescription : String?
     @objc dynamic var logoPath : String?
     @objc dynamic var name : String?
     @objc dynamic var website : String?
     
-    override static func primaryKey() -> String? {
-        return "ID"
+    required init(from decodable: Decodable) {
+        super.init(from: decodable)
+        if let decodable = decodable as? SponsorDecodable {
+            id = decodable.id
+            country = decodable.country
+            sponsorsDescription = decodable.description
+            logoPath = decodable.logoPath
+            name = decodable.name
+            website = decodable.website
+        }
+    }
+    
+    required init() {
+        super.init()
     }
 }

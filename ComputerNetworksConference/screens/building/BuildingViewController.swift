@@ -17,11 +17,7 @@ class BuildingViewController: UIViewController {
     @IBOutlet weak var sideMenuTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var photo: UIImageView!
     
-    private var buildingsPlansEntities: Results<BuildingPlanEntity> {
-         let conf = Realm.Configuration(schemaVersion: 1)
-         let realm = try! Realm(configuration: conf)
-         return realm.objects(BuildingPlanEntity.self)
-     }
+    private var buildingsPlansEntities: Results<BuildingPlanEntity>?
     
     
     override func viewDidLoad() {
@@ -31,20 +27,25 @@ class BuildingViewController: UIViewController {
                modalBackground.isUserInteractionEnabled = true
     }
     
-    func downloadImage(from url: URL) {
-        photo.downloaded(from: url)
+    override func viewWillAppear(_ animated: Bool) {
+        hideSideMenu()
+        RestApiManager.sharedInstance.updateLocalDatabase(with: .buildingPlan, completion: {
+            DispatchQueue.main.async {
+                self.buildingsPlansEntities = GlobalVariables.realm.objects(BuildingPlanEntity.self)
+                self.downloadImage()
+            }
+        })
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-       var entity = buildingsPlansEntities[0]
-        let url = URL(string: buildingsPlansEntities[0].path ?? "")!
-        downloadImage(from: url)
-        hideSideMenu()
+    func downloadImage() {
+        let url = URL(string: "http://13.58.108.102:3030/" + (buildingsPlansEntities?[0].path ?? ""))!
+        photo.downloaded(from: url)
     }
     
     @IBAction func sideMenuButtonPressed(_ sender: UIButton) {
         showSideMenu()
     }
+    
     func showSideMenu(){
         sideMenuLeadingConstraint.constant = 0
         sideMenuTrailingConstraint.constant = 90
@@ -63,7 +64,8 @@ class BuildingViewController: UIViewController {
 }
 
 extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+    
+    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
@@ -77,7 +79,8 @@ extension UIImageView {
             }
         }.resume()
     }
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+    
+    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
     }

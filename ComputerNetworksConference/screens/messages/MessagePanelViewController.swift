@@ -30,9 +30,9 @@ class MessagePanelViewController: MessagesViewController, MessagesDataSource, Me
         return vc
     }
     
-    private var messageEntities: Results<MessageEntity>!
+    private var messageEntities: Results<MessageEntity>?
     
-    private let currentUser = Sender(senderId: "2", displayName: "Me")
+    private let currentUser = Sender(senderId: String(GlobalVariables.currentUserId), displayName: "Me")
     private var timer = Timer()
     
     override func viewDidLoad() {
@@ -42,12 +42,26 @@ class MessagePanelViewController: MessagesViewController, MessagesDataSource, Me
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
+            layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
+            layout.textMessageSizeCalculator.incomingAvatarSize = .zero
+            layout.setMessageIncomingAvatarSize(.zero)
+        }
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateMessages), userInfo: nil, repeats: true)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateMessages()
+    }
+    
     @objc private func updateMessages() {
-        messageEntities = GlobalVariables.realm.objects(MessageEntity.self)
-        messagesCollectionView.reloadData()
+        RestApiManager.sharedInstance.updateLocalDatabase(with: .message, completion: {
+            DispatchQueue.main.async {
+                self.messageEntities = GlobalVariables.realm.objects(MessageEntity.self)
+                self.messagesCollectionView.reloadData()
+            }
+        })
     }
     
     deinit {
@@ -59,20 +73,17 @@ class MessagePanelViewController: MessagesViewController, MessagesDataSource, Me
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-        return messageEntities[indexPath.section].getMessage()
+        return messageEntities![indexPath.section].getMessage()
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-        return messageEntities.count
+        return messageEntities?.count ?? 0
     }
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        let newMessageEntity = MessageEntity(for: currentUser, text: text)
+        RestApiManager.sharedInstance.updateRemoteDatabase(with: ["mobileUserID": GlobalVariables.currentUserId, "content": text], url: RestApiManager.sharedInstance.postMessageURL, completion: {
+            self.updateMessages()
+        })
         inputBar.inputTextView.text = ""
-        let realm = GlobalVariables.realm
-        try! realm.write {
-            realm.add(newMessageEntity)
-        }
-        messagesCollectionView.reloadData()
     }
 }

@@ -8,16 +8,29 @@
 
 import RealmSwift
 
-class PointOfInterestEntity: Object {
-    @objc dynamic var ID : Int = 0
+class PointOfInterestEntity: RealmEntity {
     @objc dynamic var name : String?
     @objc dynamic var address : String?
     @objc dynamic var contact : String?
     @objc dynamic var pointOfInterestDescription : String?
+    @objc dynamic var pointOfInterestTypeName : String?
     //ids
     @objc dynamic var pointOfInterestTypeId : Int = 0
     
-    override static func primaryKey() -> String? {
-        return "ID"
+    required init(from decodable: Decodable) {
+        super.init(from: decodable)
+        if let decodable = decodable as? PointOfInterestDecodable {
+            id = decodable.id
+            name = decodable.name
+            address = decodable.address
+            contact = decodable.description
+            pointOfInterestDescription = decodable.description
+            pointOfInterestTypeName = decodable.pointOfInterestTypeName
+            pointOfInterestTypeId = decodable.pointOfInterestTypeID
+        }
+    }
+    
+    required init() {
+        super.init()
     }
 }

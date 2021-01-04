@@ -27,11 +27,9 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var confDescription: UILabel!
     
     //TODO
-    private var presentationEntities: Results<PresentationEntity> {
-        let conf = Realm.Configuration(schemaVersion: 1)
-        let realm = try! Realm(configuration: conf)
-        return realm.objects(PresentationEntity.self)
-    }
+    private var presentationEntities = [PresentationEntity]()
+    private var participantsEntities = [ParticipantEntity]()
+    private var presentationParticipantsEntities = [PresentationParticipantEntity]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +47,35 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         hideSideMenu()
         hideEventDetailsModal()
-        agendaTable.reloadData()
+        RestApiManager.sharedInstance.updateLocalDatabase(with: .presentation, completion: {
+                DispatchQueue.main.async {
+                    self.presentationEntities = []
+                    self.participantsEntities = []
+                    self.presentationParticipantsEntities = []
+                    self.getPresentationEntities(GlobalVariables.realm.objects(PresentationEntity.self))
+                    self.agendaTable.reloadData()
+                }
+            RestApiManager.sharedInstance.updateLocalDatabase(with: .participant, completion: {
+                DispatchQueue.main.async {
+                    self.participantsEntities.append(contentsOf: GlobalVariables.realm.objects(ParticipantEntity.self))
+                }
+                RestApiManager.sharedInstance.updateLocalDatabase(with: .presentationParticipant, completion: {
+                    DispatchQueue.main.async {
+                        self.presentationParticipantsEntities.append(contentsOf: GlobalVariables.realm.objects(PresentationParticipantEntity.self))
+                    }
+                })
+            })
+        })
     }
+    
+    func getPresentationEntities(_ entities: Results<PresentationEntity>){
+        for entity in entities {
+            if entity.conferenceId == GlobalVariables.currentConferenceID {
+                presentationEntities.append(entity)
+            }
+        }
+    }
+    
     func showSideMenu(){
         sideMenuLeadingConstraint.constant = 0
         sideMenuTrailingConstraint.constant = 90
@@ -58,13 +83,14 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         UIView.animate(withDuration: 1.0, animations: {
             self.view.layoutIfNeeded()
         })    }
+    
     @objc func hideSideMenu(){
         let screenWidth = self.view.bounds.width
         sideMenuLeadingConstraint.constant = -screenWidth
         sideMenuTrailingConstraint.constant = 90 + screenWidth
         modalBackground.alpha = 0.0
     }
-    //TODO SPEAKER
+    
     func showEventDetailsModal(withEntity entity: PresentationEntity){
         place.text = entity.place
         confDescription.text = entity.presentationDescription
@@ -73,11 +99,30 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.eventDetailsModal.alpha = 1.0
         })
         
+        var participants = [ParticipantEntity]()
+        for presentationEntity in presentationParticipantsEntities {
+            if presentationEntity.presentationId == entity.id {
+                if let participant = participantsEntities.first(where: { entity in
+                    return entity.id == presentationEntity.participantId && presentationEntity.isSpeaker
+                }) {
+                    participants.append(participant)
+                }
+            }
+        }
+        //TODO test as soon as error in database will be fixed
+        if !participants.isEmpty {
+            speaker.text = (participants[0].firstName ?? "") + " " + (participants[0].lastName ?? "")
+            for i in 1 ..< participants.count {
+                speaker.text! += ", " + (participants[i].firstName ?? "") + " " + (participants[i].lastName ?? "")
+            }
+        }
     }
+    
     @objc func hideEventDetailsModal(){
         eventDetailsModal.alpha = 0.0
         modalBackground.alpha = 0.0
     }
+    
     @IBAction func sideMenuButtonPressed(_ sender: UIButton) {
         showSideMenu()
     }
@@ -90,13 +135,13 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 1
     }
        
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "AgendaCell", for: indexPath)
-    if let agendaCell = cell as? AgendaCell {
-        agendaCell.setCell(withEntity: presentationEntities[indexPath.row])
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AgendaCell", for: indexPath)
+        if let agendaCell = cell as? AgendaCell {
+            agendaCell.setCell(withEntity: presentationEntities[indexPath.row])
+        }
+        return cell
     }
-    return cell
-}
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AgendaHeaderCell")
@@ -120,6 +165,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         showEventDetailsModal(withEntity: presentationEntities[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
     @IBAction func generalizedAgendaPressed(_ sender: Any) {
        
     }

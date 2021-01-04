@@ -8,16 +8,27 @@
 
 import RealmSwift
 
-class OrganizerEntity: Object {
-    @objc dynamic var ID : Int = 0
+class OrganizerEntity: RealmEntity {
     @objc dynamic var firstName : String?
     @objc dynamic var lastName : String?
     @objc dynamic var affilation : String?
     @objc dynamic var company : String?
     @objc dynamic var contact : String?
     
-    override static func primaryKey() -> String? {
-        return "ID"
-    }
+    required init(from decodable: Decodable) {
+            super.init(from: decodable)
+            if let decodable = decodable as? OrganizerDecodable {
+                id = decodable.id
+                firstName = decodable.firstName
+                lastName = decodable.lastName
+                affilation = decodable.affiliation
+                company = decodable.company
+                contact = decodable.contact
+            }
+        }
+        
+        required init() {
+            super.init()
+        }
 }
            

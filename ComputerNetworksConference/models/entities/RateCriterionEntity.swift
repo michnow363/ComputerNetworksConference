@@ -8,12 +8,23 @@
 
 import RealmSwift
 
-class RateCriterionEntity : Object {
-    @objc dynamic var ID : Int = 0
+class RateCriterionEntity : RealmEntity {
     @objc dynamic var name : String?
-    @objc dynamic var rateCriterionTypeId : Int = 0
+    @objc dynamic var rateCriterionTypeName : String?
+    //ids
+    @objc dynamic var rateCriterionTypeID : Int = 0
     
-    override static func primaryKey() -> String? {
-        return "ID"
+    required init(from decodable: Decodable) {
+        super.init(from: decodable)
+        if let decodable = decodable as? RateCriterionDecodable {
+            id = decodable.id
+            name = decodable.name
+            rateCriterionTypeName = decodable.rateCriterionTypeName
+            rateCriterionTypeID = decodable.rateCriterionTypeID
+        }
+    }
+    
+    required init() {
+        super.init()
     }
 }

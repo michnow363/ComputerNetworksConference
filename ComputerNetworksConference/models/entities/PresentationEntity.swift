@@ -8,8 +8,7 @@
 
 import RealmSwift
 
-class PresentationEntity: Object {
-    @objc dynamic var ID : Int = 0
+class PresentationEntity: RealmEntity {
     @objc dynamic var startDate : Date?
     @objc dynamic var endDate : Date?
     @objc dynamic var place : String?
@@ -21,7 +20,22 @@ class PresentationEntity: Object {
     @objc dynamic var presentationTypeId : Int = 0
     
     
-    override static func primaryKey() -> String? {
-        return "ID"
+    required init(from decodable: Decodable) {
+        super.init(from: decodable)
+        if let decodable = decodable as? PresentationDecodable {
+            id = decodable.id
+            startDate = GlobalVariables.inFormatter.date(from: decodable.startDate)
+            endDate = GlobalVariables.inFormatter.date(from: decodable.endDate)
+            place = decodable.place
+            authors = decodable.authors
+            presentationDescription = decodable.description
+            title = decodable.title
+            conferenceId = decodable.conferenceID
+            presentationTypeId = decodable.presentationTypeID
+        }
+    }
+    
+    required init() {
+        super.init()
     }
 }

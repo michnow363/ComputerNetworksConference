@@ -24,11 +24,7 @@ class EmergencyViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var number: UILabel!
     //TODO
-    private var emergencyNumbersEntities: Results<EmergencyNumberEntity> {
-        let conf = Realm.Configuration(schemaVersion: 1)
-        let realm = try! Realm(configuration: conf)
-        return realm.objects(EmergencyNumberEntity.self)
-    }
+    private var emergencyNumberEntities = [EmergencyNumberEntity]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +37,29 @@ class EmergencyViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         hideSideModal()
+        RestApiManager.sharedInstance.updateLocalDatabase(with: .emergencyNumber, completion: {
+            RestApiManager.sharedInstance.updateLocalDatabase(with: .conferenceEmergencyNumber, completion: {
+                DispatchQueue.main.async {
+                    self.emergencyNumberEntities = []
+                    self.getEmergencyNumberEntities(GlobalVariables.realm.objects(ConferenceEmergencyNumberEntity.self))
+                    self.emergencyTable.reloadData()
+                }
+            })
+        })
+    }
+    
+    func getEmergencyNumberEntities(_ conferenceEmergencyNumberEntities: Results<ConferenceEmergencyNumberEntity>){
+        let conferenceEmergencyNumberEntities = conferenceEmergencyNumberEntities.filter { entity in
+            return entity.conferenceId == GlobalVariables.currentConferenceID
+        }
+        let emergencyNumberEntities = GlobalVariables.realm.objects(EmergencyNumberEntity.self)
+        for entity in emergencyNumberEntities {
+            for conferenceEntity in conferenceEmergencyNumberEntities {
+                if entity.id == conferenceEntity.emergencyNumberId {
+                    self.emergencyNumberEntities.append(entity)
+                }
+            }
+        }
     }
     
     @objc func hideSideModal() {
@@ -61,7 +80,7 @@ class EmergencyViewController: UIViewController, UITableViewDelegate, UITableVie
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return emergencyNumbersEntities.count
+        return emergencyNumberEntities.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,7 +90,7 @@ class EmergencyViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmergencyCell", for: indexPath)
         if let emergencyCell = cell as? EmergencyCell {
-            emergencyCell.setCell(withEntity: emergencyNumbersEntities[indexPath.row])
+            emergencyCell.setCell(withEntity: emergencyNumberEntities[indexPath.row])
         }
         
         return cell

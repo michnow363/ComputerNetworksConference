@@ -8,12 +8,20 @@
 
 import RealmSwift
 
-class PresentationTypeEntity: Object {
-    @objc dynamic var ID : Int = 0
+class PresentationTypeEntity: RealmEntity {
     @objc dynamic var presentationTypeDescription : String?
     @objc dynamic var name : String?
    
-    override static func primaryKey() -> String? {
-        return "ID"
+    required init(from decodable: Decodable) {
+        super.init(from: decodable)
+        if let decodable = decodable as? PresentationTypeDecodable {
+            id = decodable.id
+            presentationTypeDescription = decodable.description
+            name = decodable.name
+        }
+    }
+    
+    required init() {
+        super.init()
     }
 }
