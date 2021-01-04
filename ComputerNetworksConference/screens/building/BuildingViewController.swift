@@ -9,15 +9,17 @@
 import Foundation
 import UIKit
 import RealmSwift
+import WebKit
 
 class BuildingViewController: UIViewController {
     @IBOutlet weak var modalBackground: UIView!
     
     @IBOutlet weak var sideMenuLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var sideMenuTrailingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var buldingWebView: WKWebView!
     
-    private var buildingsPlansEntities: Results<BuildingPlanEntity>?
+    
+    private var buildingsPlansEntity: BuildingPlanEntity?
     
     
     override func viewDidLoad() {
@@ -31,15 +33,28 @@ class BuildingViewController: UIViewController {
         hideSideMenu()
         RestApiManager.sharedInstance.updateLocalDatabase(with: .buildingPlan, completion: {
             DispatchQueue.main.async {
-                self.buildingsPlansEntities = GlobalVariables.realm.objects(BuildingPlanEntity.self)
+                self.getBuildingPlanEntities(GlobalVariables.realm.objects(BuildingPlanEntity.self))
                 self.downloadImage()
             }
         })
     }
     
+    func getBuildingPlanEntities(_ entities: Results<BuildingPlanEntity>) {
+        buildingsPlansEntity = nil
+        for entity in entities {
+            if entity.conferenceId == GlobalVariables.currentConferenceID {
+                buildingsPlansEntity = entity
+            }
+        }
+    }
+    
     func downloadImage() {
-        let url = URL(string: "http://13.58.108.102/Resources/Presentations/aef67831-c2b8-4a09-bbe0-e7a2797bcccc.jpg")!
-        photo.downloaded(from: url)
+        if let buildingsPlansEntity = buildingsPlansEntity {
+            if let url = buildingsPlansEntity.path {
+                let url = URL(string: "http://13.58.108.102/" + url)!
+                buldingWebView.load(URLRequest(url: url))
+            }
+        }
     }
     
     @IBAction func sideMenuButtonPressed(_ sender: UIButton) {

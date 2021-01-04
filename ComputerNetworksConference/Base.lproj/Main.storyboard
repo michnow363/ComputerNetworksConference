@@ -15,7 +15,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="iaq-Sr-FRr" customClass="SpeakersViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IpX-sq-qsU">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="631"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5V-kf-vVK" userLabel="TopBar">
@@ -61,7 +61,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gkx-4d-3Td" userLabel="Speakers Table">
-                                <rect key="frame" x="0.0" y="106" width="324" height="525"/>
+                                <rect key="frame" x="0.0" y="106" width="324" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpeakersCell" rowHeight="103" id="kRL-kf-TFE" customClass="SpeakersCell" customModule="ComputerNetworksConference" customModuleProvider="target">
@@ -142,11 +142,11 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Q2-lb-rAO" userLabel="ModalBackground">
-                                <rect key="frame" x="0.0" y="0.0" width="324" height="631"/>
+                                <rect key="frame" x="0.0" y="0.0" width="324" height="714"/>
                                 <color key="backgroundColor" name="ModalBackground"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cg3-rV-Llb" userLabel="SpeakerDetails">
-                                <rect key="frame" x="37" y="272" width="250.5" height="131"/>
+                                <rect key="frame" x="37" y="313.5" width="250.5" height="131"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Silesian University of Technology" translatesAutoresizingMaskIntoConstraints="NO" id="QN8-YS-171" userLabel="Photo">
                                         <rect key="frame" x="10" y="25.5" width="80" height="80"/>
@@ -252,7 +252,7 @@
             <objects>
                 <tableViewController id="Fge-h9-QR9" customClass="ButtonTableViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bEF-0m-tlF">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="631"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -515,11 +515,11 @@
             <objects>
                 <viewController storyboardIdentifier="SideMenuViewController" id="gJk-HK-3jF" customClass="SideMenuViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tol-Cx-F25">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAc-Qf-ICl" userLabel="Modal">
-                                <rect key="frame" x="0.0" y="0.0" width="324" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="324" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1k-C2-ufb" userLabel="TopBar">
                                         <rect key="frame" x="0.0" y="0.0" width="324" height="40"/>
@@ -535,7 +535,7 @@
                                         </constraints>
                                     </imageView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLJ-0H-wGx">
-                                        <rect key="frame" x="0.0" y="182" width="324" height="631"/>
+                                        <rect key="frame" x="0.0" y="182" width="324" height="714"/>
                                         <connections>
                                             <segue destination="Fge-h9-QR9" kind="embed" id="8zN-Aj-8FX"/>
                                         </connections>
@@ -880,9 +880,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="ModalBackground"/>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-google-maps-old" translatesAutoresizingMaskIntoConstraints="NO" id="TkA-P0-csS" userLabel="Photo">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huQ-NB-5gu">
                                 <rect key="frame" x="0.0" y="106" width="414" height="707"/>
-                            </imageView>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0c-fV-ZQp" userLabel="SideMenuContainerView">
                                 <rect key="frame" x="0.0" y="0.0" width="324" height="896"/>
                                 <connections>
@@ -894,11 +899,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Yrp-OS-oaq" secondAttribute="trailing" id="1Ag-WB-hJg"/>
-                            <constraint firstItem="K69-vG-yv5" firstAttribute="trailing" secondItem="TkA-P0-csS" secondAttribute="trailing" id="55w-Nz-5cN"/>
+                            <constraint firstAttribute="trailing" secondItem="huQ-NB-5gu" secondAttribute="trailing" id="78j-6k-Q3x"/>
                             <constraint firstItem="Yrp-OS-oaq" firstAttribute="top" secondItem="Q1E-G9-zOb" secondAttribute="bottom" id="DmJ-X7-Mxy"/>
-                            <constraint firstItem="K69-vG-yv5" firstAttribute="bottom" secondItem="TkA-P0-csS" secondAttribute="bottom" id="EPs-xE-cPP"/>
-                            <constraint firstItem="TkA-P0-csS" firstAttribute="top" secondItem="Yrp-OS-oaq" secondAttribute="bottom" id="HsU-JB-vft"/>
+                            <constraint firstItem="huQ-NB-5gu" firstAttribute="top" secondItem="Yrp-OS-oaq" secondAttribute="bottom" id="HCo-tQ-rqR"/>
+                            <constraint firstItem="K69-vG-yv5" firstAttribute="bottom" secondItem="huQ-NB-5gu" secondAttribute="bottom" id="K28-L0-42O"/>
                             <constraint firstItem="s0c-fV-ZQp" firstAttribute="leading" secondItem="Nec-MV-3qC" secondAttribute="leading" id="OUy-VF-cUv"/>
+                            <constraint firstItem="huQ-NB-5gu" firstAttribute="leading" secondItem="Nec-MV-3qC" secondAttribute="leading" id="P6h-ti-IxY"/>
                             <constraint firstItem="25X-fa-Ddg" firstAttribute="leading" secondItem="Nec-MV-3qC" secondAttribute="leading" id="RCl-Y1-VWa"/>
                             <constraint firstItem="25X-fa-Ddg" firstAttribute="top" secondItem="Nec-MV-3qC" secondAttribute="top" id="TbB-bY-W2x"/>
                             <constraint firstAttribute="trailing" secondItem="25X-fa-Ddg" secondAttribute="trailing" id="TdN-kn-61k"/>
@@ -908,15 +914,14 @@
                             <constraint firstAttribute="bottom" secondItem="25X-fa-Ddg" secondAttribute="bottom" id="fHd-QI-y8K"/>
                             <constraint firstItem="Q1E-G9-zOb" firstAttribute="leading" secondItem="Nec-MV-3qC" secondAttribute="leading" id="hKh-5x-NpL"/>
                             <constraint firstAttribute="trailing" secondItem="s0c-fV-ZQp" secondAttribute="trailing" constant="90" id="kmQ-bX-hGG"/>
-                            <constraint firstItem="TkA-P0-csS" firstAttribute="leading" secondItem="K69-vG-yv5" secondAttribute="leading" id="my1-zX-K2Q"/>
                             <constraint firstAttribute="bottom" secondItem="s0c-fV-ZQp" secondAttribute="bottom" id="oGh-fj-A0n"/>
                             <constraint firstItem="Yrp-OS-oaq" firstAttribute="leading" secondItem="Nec-MV-3qC" secondAttribute="leading" id="tCd-qL-X5O"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Building" image="map.fill" catalog="system" selectedImage="map" id="tYT-SH-JmQ"/>
                     <connections>
+                        <outlet property="buldingWebView" destination="huQ-NB-5gu" id="s0U-kT-2tp"/>
                         <outlet property="modalBackground" destination="25X-fa-Ddg" id="YZV-Di-KdV"/>
-                        <outlet property="photo" destination="TkA-P0-csS" id="qhN-3t-Or3"/>
                         <outlet property="sideMenuLeadingConstraint" destination="OUy-VF-cUv" id="5UY-7M-1QV"/>
                         <outlet property="sideMenuTrailingConstraint" destination="kmQ-bX-hGG" id="iit-WR-v5d"/>
                     </connections>
@@ -1468,7 +1473,7 @@
             <objects>
                 <viewController id="PBb-zJ-akr" customClass="MessageViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p0T-OL-UZq">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="577"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="660"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqu-Fd-5mT" userLabel="Header">
@@ -1515,7 +1520,7 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="hUb-a8-xMj">
-                                <rect key="frame" x="0.0" y="106" width="324" height="471"/>
+                                <rect key="frame" x="0.0" y="106" width="324" height="554"/>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Haz-RG-oJl"/>
@@ -1547,7 +1552,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="HvY-73-bFH" customClass="OrganizersViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nM0-Em-iQs">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="631"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFV-5h-63E" userLabel="TopBar">
@@ -1591,7 +1596,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yc6-5a-MFb" userLabel="Organizers Table">
-                                <rect key="frame" x="0.0" y="106" width="324" height="525"/>
+                                <rect key="frame" x="0.0" y="106" width="324" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OrganizerCell" rowHeight="100" id="u8W-h7-OMr" customClass="OrganizerCell" customModule="ComputerNetworksConference" customModuleProvider="target">
@@ -1725,7 +1730,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="9HU-yY-bH7" customClass="LocationViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ls7-8E-njk">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="631"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q7n-vA-T3f" userLabel="TopBar">
@@ -1767,7 +1772,7 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaL-yg-HAx">
-                                <rect key="frame" x="0.0" y="106" width="324" height="525"/>
+                                <rect key="frame" x="0.0" y="106" width="324" height="608"/>
                                 <connections>
                                     <segue destination="zX4-DP-xMl" kind="embed" id="mna-Qr-oak"/>
                                 </connections>
@@ -1799,7 +1804,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="w6M-Qw-kg3" customClass="ContactViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="btt-Hz-tb9">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="631"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYX-ti-oEC" userLabel="TopBar">
@@ -1843,7 +1848,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y3k-Og-115" userLabel="Contact Table">
-                                <rect key="frame" x="0.0" y="106" width="324" height="525"/>
+                                <rect key="frame" x="0.0" y="106" width="324" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="183" id="Sdj-bp-Fkj" userLabel="Contact Cell" customClass="ContactCell" customModule="ComputerNetworksConference" customModuleProvider="target">
@@ -1968,7 +1973,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="Qdj-er-M7F" customClass="ConferenceRatingViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LJK-l5-vYv">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="631"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dai-rv-kV7" userLabel="TopBar">
@@ -2012,10 +2017,10 @@
                                 </constraints>
                             </view>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQa-Wc-8Ly">
-                                <rect key="frame" x="0.0" y="229.5" width="324" height="216"/>
+                                <rect key="frame" x="0.0" y="271" width="324" height="216"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EwJ-P2-b6Y" userLabel="Save Button">
-                                <rect key="frame" x="117" y="541" width="90" height="40"/>
+                                <rect key="frame" x="117" y="624" width="90" height="40"/>
                                 <color key="backgroundColor" name="IconColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tJu-cc-vUo"/>
@@ -2061,7 +2066,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="Mxk-pk-JFk" customClass="SponsorsViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4e5-Sr-qzx">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="631"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9E-Qx-S6E" userLabel="TopBar">
@@ -2105,7 +2110,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-HU-Lt3" userLabel="Sponsors Table">
-                                <rect key="frame" x="0.0" y="106" width="324" height="525"/>
+                                <rect key="frame" x="0.0" y="106" width="324" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SponsorsCell" rowHeight="103" id="Rz7-3u-Udi" customClass="SponsorsCell" customModule="ComputerNetworksConference" customModuleProvider="target">
@@ -2210,7 +2215,7 @@
             <objects>
                 <viewController storyboardIdentifier="ImportantPlacesViewController" id="jee-fs-MyO" customClass="ConferencePlaceViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iJb-QO-36C">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="525"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="608"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lST-eJ-tt3" userLabel="Tab Bar Background">
@@ -2250,10 +2255,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIJ-HZ-k9y" userLabel="Description">
-                                <rect key="frame" x="10" y="389.5" width="304" height="115.5"/>
+                                <rect key="frame" x="10" y="389.5" width="304" height="198.5"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6W-rd-IcL">
-                                        <rect key="frame" x="0.0" y="0.0" width="304" height="115.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="198.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghl-gB-Xyc" userLabel="Text Label">
                                                 <rect key="frame" x="5" y="0.0" width="304" height="418"/>
@@ -2322,7 +2327,7 @@
             <objects>
                 <viewController storyboardIdentifier="AccommodationViewController" id="NYp-8r-Lb2" customClass="AccommodationViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZVv-Vz-fpm">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="525"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="608"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ar6-od-FQN" userLabel="Tab Bar Background">
@@ -2333,7 +2338,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J7o-8f-2PA" userLabel="Accommodation Table">
-                                <rect key="frame" x="0.0" y="50" width="324" height="475"/>
+                                <rect key="frame" x="0.0" y="50" width="324" height="558"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccommodationCell" id="MU0-Bn-kaS" userLabel="Accommodation Cell" customClass="AccommodationCell" customModule="ComputerNetworksConference" customModuleProvider="target">
@@ -2478,7 +2483,7 @@
             <objects>
                 <viewController id="eWs-Xv-AH5" customClass="MapViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OEI-k4-VUl">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="471"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARu-2n-K9Q" userLabel="TopBar">
@@ -2524,7 +2529,7 @@
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4sQ-yW-hUZ">
-                                <rect key="frame" x="0.0" y="106" width="324" height="365"/>
+                                <rect key="frame" x="0.0" y="106" width="324" height="448"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NQ3-hP-68d"/>
@@ -2577,11 +2582,11 @@
             <objects>
                 <viewController storyboardIdentifier="ConferencePlaceViewController" id="Dho-iv-GTw" customClass="ImportantPlacesViewController" customModule="ComputerNetworksConference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wyw-jp-lIK">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="525"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="608"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wiU-sb-J0e">
-                                <rect key="frame" x="0.0" y="50" width="324" height="475"/>
+                                <rect key="frame" x="0.0" y="50" width="324" height="558"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImportantPlacesCell" id="5sr-br-pgm" customClass="ImportantPlacesCell" customModule="ComputerNetworksConference" customModuleProvider="target">
@@ -2741,7 +2746,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ZVL-j9-9zS"/>
-        <segue reference="IBH-yo-YGq"/>
+        <segue reference="Ypi-mB-s6P"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Location" width="50" height="50"/>
