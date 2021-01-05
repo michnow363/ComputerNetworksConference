@@ -122,7 +122,5 @@
             nameLabel.text = entity.lastName
         }
         universityLabel.text = entity.company
-        //emailLabel.text = entity.
-
     }
     }

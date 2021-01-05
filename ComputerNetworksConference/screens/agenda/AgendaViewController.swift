@@ -143,19 +143,6 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "AgendaHeaderCell")
-//        if let agendaHeaderCell = cell as? AgendaHeaderCell {
-//            agendaHeaderCell.eventData.text = "05/11/2020"
-//        }
-//
-//        return cell
-//    }
-   
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return (tableView.dequeueReusableCell(withIdentifier: "AgendaHeaderCell")?.bounds.height)!
-//    }
-    
     
     @IBAction func sideMenuButttonPressed(_ sender: Any) {
         showSideMenu()
@@ -165,11 +152,4 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         showEventDetailsModal(withEntity: presentationEntities[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    @IBAction func generalizedAgendaPressed(_ sender: Any) {
-       
-    }
-    
-   
-    
 }

@@ -96,6 +96,7 @@ class EmergencyViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return cell
     }
+    
     @IBAction func sideMenuButtonPressed(_ sender: UIButton) {
         showSideModal()
     }
